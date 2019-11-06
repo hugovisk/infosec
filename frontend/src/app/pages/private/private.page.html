@@ -1,0 +1,35 @@
+<ion-header>
+  <mat-toolbar color="primary">
+    <span>Pagina privada</span>
+  </mat-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <mat-card>
+    <mat-card-header>
+
+      <mat-card-title>
+        <mat-icon>thumb_up</mat-icon><br> Muito bem!
+      </mat-card-title>
+      <mat-card-subtitle> Você esta em uma área autenticada.</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <p>{{ data }}</p>
+
+  <ion-item lines="none">
+    <button mat-raised-button  color="primary" text-uppercase [routerLink]="['/reset-password']" routerLinkActive="router-link-active" >
+      <strong>Redefir senha</strong>
+    </button>
+  </ion-item>
+  <ion-item lines="none">
+    <button mat-raised-button  color="accent" text-uppercase (click)="logout()">
+      <strong>Logout</strong>
+    </button>
+  </ion-item>
+
+  <!-- <ion-button expand="full" (click)="loadSpecialInfo()">Load Special Info</ion-button>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button> -->
+
+</ion-content>

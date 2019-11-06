@@ -1,0 +1,42 @@
+<ion-content padding>
+
+    <mat-card >
+        <mat-card-header text-center>          
+          <mat-card-title>Bem-vindo a Autenticação</mat-card-title>
+          <mat-card-subtitle>Entre com seu email e senha ou registrar-se com seu email</mat-card-subtitle>
+        </mat-card-header>
+        <form [formGroup]="credentialsForm">
+        <mat-form-field>
+            <input matInput placeholder="E-mail" formControlName="email" type="email" inputmode="email" autofocus>
+            <mat-error *ngIf="input.email.invalid && input.email.touched">
+              {{  getErrorMessage('email') }}
+            </mat-error>
+          </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Senha" formControlName="password"
+                  [type]="hide ? 'password' : 'text'" inputmode="password">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="input.password.invalid && input.password.touched">
+                  {{ getErrorMessage('password') }}
+                </mat-error>
+              </mat-form-field>
+            
+            <button mat-button color="primary" class="forgot-button" (click)="recoveryPassword()">Esqueceu a senha?</button>
+            <br><br><br><br>
+            <mat-card-actions text-center>
+                <div margin>
+                  <button mat-stroked-button color="primary" (click)="login()" text-uppercase [disabled]="!credentialsForm.valid">
+                    <strong>Entrar</strong>
+                  </button>
+                </div>
+                <mat-divider [inset]="true"></mat-divider>
+                <div margin>
+                  <button mat-raised-button color="primary" (click)="register()" text-uppercase [disabled]="input.email.invalid">
+                    <strong>Registre-se</strong>
+                  </button>
+                </div>           
+            </mat-card-actions>
+          </form>
+      </mat-card>
+</ion-content>
+
